@@ -1,7 +1,14 @@
 require 'pry'
 require 'benchmark'
 
-class RockPaperSissors 
+class RockPaperSissors
+    ROCK = "X"
+    PAPER = "Y"
+    SCISSORS = "Z"
+
+    ROCK = "A"
+    PAPER = "B"
+    SCISSORS = "C"
     POINTS = {
         "X" => 1,
         "Y" => 2,
@@ -72,7 +79,7 @@ class RockPaperSissors
     end
 end
 
-puts(RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1)
-puts(Benchmark.realtime { RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1})
-puts(RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2)
-puts(Benchmark.realtime { RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2})
+puts("part 1 solution: #{RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1}")
+puts("time to solve part 1: #{Benchmark.realtime { RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1}}")
+puts("part 2 solution: #{RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2}")
+puts("time to solve part 2: #{Benchmark.realtime { RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2}}")
