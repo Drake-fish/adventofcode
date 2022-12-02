@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative './spec_helper'
 require_relative '../day_1/elf_caloric_calculator'
 
 describe "ElfCaloricCalculator" do 
