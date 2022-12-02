@@ -1,14 +1,6 @@
 require 'pry'
-require 'benchmark'
 
 class RockPaperSissors
-    ROCK = "X"
-    PAPER = "Y"
-    SCISSORS = "Z"
-
-    ROCK = "A"
-    PAPER = "B"
-    SCISSORS = "C"
     POINTS = {
         "X" => 1,
         "Y" => 2,
@@ -79,7 +71,23 @@ class RockPaperSissors
     end
 end
 
-puts("part 1 solution: #{RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1}")
+
+def time_it
+    st = Time.now
+    yield
+    puts Time.now - st
+end
+
+puts("part 1:")
+time_it do 
+    puts RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1
+end
+
 puts("time to solve part 1: #{Benchmark.realtime { RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_1}}")
-puts("part 2 solution: #{RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2}")
+
+puts("part 2:")
+time_it do 
+    puts RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2
+end
+
 puts("time to solve part 2: #{Benchmark.realtime { RockPaperSissors.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_2/input.txt").solve_part_2}}")
