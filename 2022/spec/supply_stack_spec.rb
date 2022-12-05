@@ -18,19 +18,29 @@ describe "SupplyStack" do
 
   describe "move" do 
     it "should take an array of instructions and move the crates" do 
-      expect(st.move([1,2,1])).to eq([["DNZ", "CM", "P"]])
+      expect(st.move([1,2,1], 9000)).to eq([["DNZ", "CM", "P"]])
+    end
+
+    it "should take an array of instructions and move the crates" do 
+      expect(st.move([1,2,1], 9001)).to eq([["DNZ", "CM", "P"]])
+    end
+
+    it "should move the crates at the same time" do 
+      expect(st.move([2,1,3], 9001)).to eq([["", "DCM", "NZP"]])
+    end
+
+    it "should move the crates at the same time" do 
+      expect(st.move([3,2,1], 9001)).to eq([["DCMNZ", "", "P"]])
+    end
+
+    it "should do nothing if there's no crates to move" do 
+      expect(st.move([18,3,1], 9001)).to eq([["PNZ", "DCM", ""]])
     end
   end
 
   describe "get_top_letters" do 
     it "should return the top letter of each stack" do 
       expect(st.get_top_letters).to eq("NDP")
-    end
-  end
-
-  describe "move_9001" do 
-    it "should move the crates at the same time" do 
-      expect(st.move_9001([2,1,3])).to eq([["", "DCM", "NZP"]])
     end
   end
 

@@ -6,12 +6,12 @@ class SupplyStack
   end
 
   def solve_part_1
-    @instructions.split("\n").map { |i| read_instructions(i) }.map { |i| move(i) }
+    @instructions.split("\n").map { |i| read_instructions(i) }.map { |i| move(i, 9000) }
     get_top_letters
   end
 
   def solve_part_2 
-    @instructions.split("\n").map { |i| read_instructions(i) }.map { |i| move_9001(i) }
+    @instructions.split("\n").map { |i| read_instructions(i) }.map { |i| move(i, 9001) }
     get_top_letters
   end
 
@@ -22,16 +22,11 @@ class SupplyStack
     instruction.split(" ").map(&:to_i)
   end
 
-  def move(instructions)
-    instructions[0].times do
-      letter = @crates[0][instructions[1] - 1].slice!(0, 1)
-      @crates[0][instructions[2] - 1] = letter + @crates[0][instructions[2] - 1]
-    end
-    @crates
-  end
-
-  def move_9001(instructions) 
+  def move(instructions, crate_mover_version)
     letters = @crates[0][instructions[1] - 1].slice!(0, instructions[0])
+    if crate_mover_version == 9000
+     letters = letters.reverse!
+    end
     @crates[0][instructions[2] - 1] = letters + @crates[0][instructions[2] - 1]
     @crates
   end
