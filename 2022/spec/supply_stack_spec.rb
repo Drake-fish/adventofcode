@@ -6,6 +6,7 @@ describe "SupplyStack" do
   let(:complicated_crates) { [["DTWNL","HCP","JMGDNHPW","LQTNSWC","NCHP","BQWMDNHT","LSGJRBM","TRBVGWNZ","LPNDGW"]] }
   let(:st) { SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/spec/day_5_input.txt", crates_sample) }
   let(:st_2) { SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", complicated_crates) }
+  let(:st_2_1) { SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/spec/day_5_part_2_input.txt", complicated_crates) }
 
   describe "read_instructions" do 
     it "should break the instructions into variables to use" do 
@@ -66,6 +67,10 @@ describe "SupplyStack" do
 
     it "should return the correct output for part 2 with more complicated instructions" do 
       expect(st_2.solve_part_2).to eq("JNRSCDWPC")
+    end
+
+    it "should return the expected output for a small subset of the problem" do 
+      expect(st_2_1.solve_part_2).to eq("NHPWTHLBJ")
     end
   end
 end

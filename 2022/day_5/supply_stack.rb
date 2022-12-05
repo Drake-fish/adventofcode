@@ -46,15 +46,15 @@ input_crates = [["DTWNL","HCP","JMGDNHPW","LQTNSWC","NCHP","BQWMDNHT","LSGJRBM",
 second_crates = [["DTWNL","HCP","JMGDNHPW","LQTNSWC","NCHP","BQWMDNHT","LSGJRBM","TRBVGWNZ","LPNDGW"]]
 
 
-# puts("part 1:")
-# time_it do 
-#   puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", input_crates).solve_part_1
-# end
+puts("part 1:")
+time_it do 
+  puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", input_crates).solve_part_1
+end
 
 
-# puts("part 2:")
-# time_it do 
-#   puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", second_crates).solve_part_2
-# end
+puts("part 2:")
+time_it do 
+  puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", second_crates).solve_part_2
+end
 
 

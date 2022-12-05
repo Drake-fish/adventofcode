@@ -4,5 +4,4 @@ move 8 from 9 to 1
 move 3 from 5 to 4
 move 9 from 1 to 8
 move 2 from 1 to 5
-move 1 from 1 to 8
-move 14 from 8 to 2
+move 6 from 3 to 9
