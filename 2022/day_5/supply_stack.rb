@@ -6,12 +6,12 @@ class SupplyStack
   end
 
   def solve_part_1
-    @instructions.split("\n").map { |i| read_instructions(i) }.map { |i| move(i, 9000) }
+    @instructions.split("\n").map { |i| read_instructions(i) }.each { |i| move(i, 9000) }
     get_top_letters
   end
 
-  def solve_part_2 
-    @instructions.split("\n").map { |i| read_instructions(i) }.map { |i| move(i, 9001) }
+  def solve_part_2
+    @instructions.split("\n").map { |i| read_instructions(i) }.each { |i| move(i, 9001) }
     get_top_letters
   end
 
@@ -22,12 +22,12 @@ class SupplyStack
     instruction.split(" ").map(&:to_i)
   end
 
-  def move(instructions, crate_mover_version)
-    letters = @crates[0][instructions[1] - 1].slice!(0, instructions[0])
+  def move(inst, crate_mover_version)
+    letters = @crates[0][inst[1] - 1].slice!(0, inst[0])
     if crate_mover_version == 9000
-     letters = letters.reverse!
+     letters.reverse!
     end
-    @crates[0][instructions[2] - 1] = letters + @crates[0][instructions[2] - 1]
+    @crates[0][inst[2] - 1] = letters + @crates[0][inst[2] - 1]
     @crates
   end
 
@@ -42,18 +42,19 @@ def time_it
   puts Time.now - st
 end
 
-crates = [["DTWNL","HCP","JMGDNHPW","LQTNSWC","NCHP","BQWMDNHT","LSGJRBM","TRBVGWNZ","LPNDGW"]]
+input_crates = [["DTWNL","HCP","JMGDNHPW","LQTNSWC","NCHP","BQWMDNHT","LSGJRBM","TRBVGWNZ","LPNDGW"]]
+second_crates = [["DTWNL","HCP","JMGDNHPW","LQTNSWC","NCHP","BQWMDNHT","LSGJRBM","TRBVGWNZ","LPNDGW"]]
 
 
-puts("part 1:")
-time_it do 
-    puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", crates).solve_part_1
-end
+# puts("part 1:")
+# time_it do 
+#   puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", input_crates).solve_part_1
+# end
 
 
-puts("part 2:")
-time_it do 
-    puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", crates).solve_part_2
-end
+# puts("part 2:")
+# time_it do 
+#   puts SupplyStack.new("/Users/drakefish/Desktop/fun/adventofcode/2022/day_5/input.txt", second_crates).solve_part_2
+# end
 
 
